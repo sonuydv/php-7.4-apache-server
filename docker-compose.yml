@@ -1,0 +1,33 @@
+version: '20.10.21'
+services:
+  php-apache:
+    container_name: php-apache-7.4.33
+    build: .  #Use dockerfile avialble in current directory instead of below image
+      # image: php:7.4.33-apache
+
+      #Providing mysql db inside phpapache container  
+    depends_on:
+      - db
+    volumes:
+      # - ./etc/apache2.conf:/etc/apache2/apache2.conf
+      - /opt/http/htdocs:/var/www/html
+      - ./etc/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./log:/var/log/apache2
+    extra_hosts:
+      - ihmf.local.com:127.0.0.1
+    ports:
+      - 80:80
+
+  db:
+      container_name: mysql-8.0.31
+      image: mysql:8.0.31
+      command: --default-authentication-plugin=mysql_native_password
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: 35043 
+      volumes:
+        - ./data/mysql:/var/lib/mysql
+      ports:
+        - 3306:3306
+
+
