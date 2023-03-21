@@ -23,3 +23,6 @@ after installation you can use server script avaiable in root of source folder
 ##Configuration
 ###Vertual hosts 
 You can check inside etc folder avaiable in root of source folder for virtual hosts related configuration
+
+##Changes 
+

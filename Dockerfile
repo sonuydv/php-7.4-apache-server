@@ -33,6 +33,7 @@ RUN apt-add-repository 'deb http://security.debian.org/debian-security stretch/u
 RUN apt-get update
 RUN apt-get install -y openjdk-8-jdk
 RUN apt-get install -y git
+RUN apt-get install -y ghostscript
 
 RUN apt-get clean
 
