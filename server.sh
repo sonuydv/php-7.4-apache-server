@@ -29,7 +29,9 @@ startWebServer(){
   docker-compose up &
   echo "Done!"
 }
-stopWebServer(){ echo "Stopping apache container ..." docker container stop php-apache-7.4.33
+stopWebServer(){ 
+  echo "Stopping apache container ..." 
+  docker container stop php-apache-7.4.33
   echo "Stopping mysql container ..."
   docker container stop mysql-8.0.31
   echo "Done!"

@@ -29,7 +29,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN apt-get install -y software-properties-common
 
-RUN apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main'
+RUN apt-add-repository 'deb http://archive.debian.org/debian stretch main contrib non-free'
 RUN apt-get update
 RUN apt-get install -y openjdk-8-jdk
 RUN apt-get install -y git
