@@ -3,8 +3,13 @@ docker compose : php-7.4-apache-server with mysql
 
 
 ##Description
-1.this is is docker compose file which consists of php configured apache,java8 and with mysql db configured.
+1.this repo should only be used for testing purposes to mongodb with mongo-express web client
 
+
+##Mongo db data will be stored in the parent directory named data
+if not exits create one by following steps
+Assume that you are in root repo directory
+$ mkdir ../data
 
 ##Installation
 after cloning the reposition

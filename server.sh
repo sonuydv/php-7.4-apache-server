@@ -8,8 +8,8 @@
 
 echo "Startup ..."
 echo "0.Exit"
-echo "1.Web server start"
-echo "2.Web server stop"
+echo "1.Start mongodb server"
+echo "2.Stop mongodb server"
 echo -n "Selection : "
 read choice
 
@@ -23,17 +23,14 @@ else
 fi
 
 
-startWebServer(){
-  echo "Starting container web server ..."
-  # cd ~/workspace/web/server
+startMongodb(){
+  echo "Starting mongodb container..."
   docker-compose up &
   echo "Done!"
 }
-stopWebServer(){ 
-  echo "Stopping apache container ..." 
-  docker container stop php-apache-7.4.33
-  echo "Stopping mysql container ..."
-  docker container stop mysql-8.0.31
+stopMongodb(){ 
+  echo "Stopping mongodb containers..." 
+  docker-compose stop & 
   echo "Done!"
 }
 
@@ -41,9 +38,9 @@ if [ $choice -eq 0 ];then
   echo "Exiting ...";
   exit
 elif [ $choice -eq 1 ];then
-  startWebServer
+  startMongodb
 elif [ $choice -eq 2 ];then
-  stopWebServer
+  stopMongodb
 else
   echo "Exiting ..."
 fi
